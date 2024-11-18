@@ -12,6 +12,24 @@ const schema = a.schema({
       content: a.string(),
     })
     .authorization((allow) => [allow.publicApiKey()]),
+  Test: a.customType({
+      id: a.id().required(),
+      name: a.string(),
+      sort: a.integer(),
+      create_time: a.datetime(),
+      update_time: a.datetime(),
+    }),
+  getTest: a
+    .query()
+    .arguments({ id: a.id().required()})
+    .returns(a.ref("test"))
+    .authorization(allow => [allow.publicApiKey()])
+    .handler(
+      a.handler.custom({
+        dataSource: "test",
+        entry: "./getTest.js",
+      })
+    ),  
 });
 
 export type Schema = ClientSchema<typeof schema>;
