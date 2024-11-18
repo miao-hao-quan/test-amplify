@@ -12,13 +12,13 @@ const schema = a.schema({
       content: a.string(),
     })
     .authorization((allow) => [allow.publicApiKey()]),
-  Test: a.customType({
+    test: a.customType({
       id: a.id().required(),
       name: a.string(),
       sort: a.integer(),
       create_time: a.datetime(),
       update_time: a.datetime(),
-    }),
+    }), 
   getTest: a
     .query()
     .arguments({ id: a.id().required()})
@@ -26,10 +26,10 @@ const schema = a.schema({
     .authorization(allow => [allow.publicApiKey()])
     .handler(
       a.handler.custom({
-        dataSource: "test",
+        dataSource: "ExternalTestTableDataSource",
         entry: "./getTest.js",
       })
-    ),  
+    ), 
 });
 
 export type Schema = ClientSchema<typeof schema>;
