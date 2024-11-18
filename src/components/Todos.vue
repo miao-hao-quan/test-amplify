@@ -30,8 +30,8 @@ const getData = async (id: any) => {
   const { data, errors } = await client.queries.getTest({
     id: id,
   });
-  console.log(data, "data");
-  console.log(errors, "errors");
+  console.log(data, "==============================>data");
+  console.log(errors, "==============================>errors");
 };
 
 // fetch todos when the component is mounted
