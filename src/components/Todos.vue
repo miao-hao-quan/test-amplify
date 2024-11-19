@@ -3,6 +3,7 @@ import "@/assets/main.css";
 import { onMounted, ref } from "vue";
 import type { Schema } from "../../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
+import { getList } from "@/api/test.js";
 
 const client = generateClient<Schema>();
 
@@ -26,19 +27,12 @@ function createTodo() {
   });
 }
 
-const getData = async (id: string,sort:number) => {
-  const { data, errors } = await client.queries.getTest({
-    id: id,
-    sort:sort
-  });
-  console.log(data, "==============================>data");
-  console.log(errors, "==============================>errors");
-};
-
 // fetch todos when the component is mounted
 onMounted(() => {
-  listTodos();
-  getData("1",6);
+  // listTodos();
+  getList().then((res:any)=>{
+    console.log(res,"res")
+  })
 });
 </script>
 
