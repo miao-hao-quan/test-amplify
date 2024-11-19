@@ -21,7 +21,7 @@ const schema = a.schema({
     }), 
   getTest: a
     .query()
-    .arguments({ id: a.id().required()})
+    .arguments({ id: a.id().required(),sort:a.integer()})
     .returns(a.ref("test"))
     .authorization(allow => [allow.publicApiKey()])
     .handler(

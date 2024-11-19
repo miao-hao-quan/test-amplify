@@ -26,9 +26,10 @@ function createTodo() {
   });
 }
 
-const getData = async (id: any) => {
+const getData = async (id: string,sort:number) => {
   const { data, errors } = await client.queries.getTest({
     id: id,
+    sort:sort
   });
   console.log(data, "==============================>data");
   console.log(errors, "==============================>errors");
@@ -37,7 +38,7 @@ const getData = async (id: any) => {
 // fetch todos when the component is mounted
 onMounted(() => {
   listTodos();
-  getData(1);
+  getData("1",6);
 });
 </script>
 
