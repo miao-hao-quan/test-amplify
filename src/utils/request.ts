@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 // 创建axios实例
 const service = axios.create({
   baseURL: "https://5akxnaj5l4.execute-api.ap-northeast-1.amazonaws.com/",
