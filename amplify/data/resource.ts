@@ -13,9 +13,10 @@ const schema = a.schema({
     })
     .authorization((allow) => [allow.publicApiKey()]),
   test: a.customType({
-    id: a.id().required(),
+    aid: a.id().required(),
     name: a.string(),
     sort: a.integer(),
+    sort222: a.integer(),
     create_time: a.datetime(),
     update_time: a.datetime(),
   }), 
