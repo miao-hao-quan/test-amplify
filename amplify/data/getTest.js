@@ -1,7 +1,7 @@
 import * as ddb from "@aws-appsync/utils/dynamodb";
 
 export function request(ctx) {
-  const { id, sort } = {id:1,sort:6};
+  const { id, sort } = ctx.args;
     const key = { id, sort };
     return ddb.get({
         key,
