@@ -13,11 +13,11 @@ const externalDataSourcesStack = backend.createStack("MyExternalDataSources");
 const externalTable = aws_dynamodb.Table.fromTableName(
   externalDataSourcesStack,
   "MyExternalTestTable",
-  "testTable"
+  "test"
 );
 
 
 backend.data.addDynamoDbDataSource(
-  "ExternalTestTableDataSource",
+  "test",
   externalTable
 );

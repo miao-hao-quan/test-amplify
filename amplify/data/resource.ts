@@ -12,13 +12,13 @@ const schema = a.schema({
       content: a.string(),
     })
     .authorization((allow) => [allow.publicApiKey()]),
-    test: a.customType({
-      id: a.id().required(),
-      name: a.string(),
-      sort: a.integer(),
-      create_time: a.datetime(),
-      update_time: a.datetime(),
-    }), 
+  test: a.customType({
+    id: a.id().required(),
+    name: a.string(),
+    sort: a.integer(),
+    create_time: a.datetime(),
+    update_time: a.datetime(),
+  }), 
   getTest: a
     .query()
     .arguments({ id: a.id().required(),sort:a.integer()})
