@@ -8,4 +8,9 @@ export function request(ctx) {
     })
 }
 
+// export function request(ctx) {
+//   const { nextToken, lastSync } = ctx.args;
+//   return { operation: 'Sync', limit: 100, nextToken, lastSync };
+// }
+
 export const response = (ctx) => ctx.result;
