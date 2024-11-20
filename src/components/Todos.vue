@@ -6,7 +6,6 @@
     :columns="columns"
     :pagination="false"
     size="small"
-    :row-key="record => record.id"
     :data-source="dataSource"
   >
   </a-table>
