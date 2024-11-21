@@ -44,7 +44,7 @@ const existsRoute_inner = (path:any, theRoutes:any) => {
     return false;
 };
 
-export const existsRoute = (path) => {
+export const existsRoute = (path:any) => {
 
     return existsRoute_inner(path, routes);
 
