@@ -20,7 +20,6 @@ import { onMounted, ref } from 'vue';
 import { getList } from '../api/test';
 const activeKey = ref('1');
 const dataSource = ref([]);
-
 const columns = [
   {
     title: 'ID',
