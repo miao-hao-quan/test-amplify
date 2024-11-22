@@ -29,7 +29,6 @@ const routes = [
     }
 ]
 
-// 判断路由是否存在
 const existsRoute_inner = (path:any, theRoutes:any) => {
     for (let i = 0; i < theRoutes.length; i++) {
         const r = theRoutes[i];
