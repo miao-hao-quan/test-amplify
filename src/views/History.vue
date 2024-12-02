@@ -14,7 +14,7 @@
           >
             情報源
           </span>
-          <a-input placeholder="🔍 Search..." v-model:value="query.source" />
+          <a-input placeholder="🔍Search..." v-model:value="query.source" />
         </div>
         <div style="display: flex; align-items: center; margin-top: 10px">
           <span
@@ -28,7 +28,7 @@
           >
             情報種別
           </span>
-          <a-input placeholder="🔍 Search..." v-model:value="query.type" />
+          <a-input placeholder="🔍Search..." v-model:value="query.type" />
         </div>
       </a-col>
       <a-col :span="10" style="padding-left: 50px">
@@ -157,8 +157,12 @@
     >
       <div>
         <span style="color: white">Rows per page</span>
-        <select style="padding: 6px; border-radius: 4px; margin-left: 10px">
-          <option>10/row</option>
+        <select style="padding: 6px; border-radius: 4px; margin-left: 10px" v-model="query.pageSize" @change="changePageSize"> 
+          <option :value="10">10/row</option>
+          <option :value="20">20/row</option>
+          <option :value="30">30/row</option>
+          <option :value="40">40/row</option>
+          <option :value="50">50/row</option>
         </select>
       </div>
       <div style="margin-left: 10px">
@@ -322,6 +326,12 @@ const getPages = () => {
       resolve();
     });
   });
+};
+
+const changePageSize = async () => {
+  spinning.value = true;
+  await getPages()
+  init()
 };
 
 const changePage = (type: number) => {
